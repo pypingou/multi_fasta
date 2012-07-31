@@ -1,0 +1,8 @@
+multi_fasta
+===========
+
+The goal of the project is to create a simple structure to read fasta files
+in different programming language.
+
+The sample test file comes from: http://en.wikipedia.org/wiki/FASTA_format#Header_line
+
