@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdio.h>  // provides printf
 #include <vector>   // provides the vector
 #include <iostream> // provides cout
 #include <fstream>  // to read the file
@@ -8,7 +8,7 @@
 int main (int argc, char *argv[])
 {
     if (argc == 1){
-        printf("Missing one argument the fasta file to read");
+        printf("Missing one argument the fasta file to read\n");
         return 1;
     }
 
@@ -42,10 +42,11 @@ int main (int argc, char *argv[])
         }
 
         for (std::vector<Fasta>::iterator sequence = fasta_list.begin();
-                                   sequence != fasta_list.end(); 
+                                   sequence != fasta_list.end();
                                    ++sequence)
         {
-            printf("%s -> %i \n", sequence->header(), sequence->length());
+            printf("%s -> %i - GC: %i%%\n", sequence->header(),
+                sequence->length(), sequence->gccontent());
         }
     }
     else printf("Unable to open file\n");

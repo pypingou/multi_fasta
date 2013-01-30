@@ -1,5 +1,6 @@
 #include "fasta.h"
 #include <string.h>
+#include <stdio.h> // provides printf
 
 const char* Fasta::header()
 {
@@ -14,6 +15,25 @@ const char* Fasta::data()
 int Fasta::length()
 {
     return _data.length();
+}
+
+int Fasta::gccontent()
+{
+    if (_data.length() == 0){
+        return 0;
+    }
+    int gccontent = 0;
+
+    std::string s(_data);
+    for (std::string::iterator it = s.begin(), end = s.end(); it != end; ++it)
+    {
+        char c = tolower(*it);
+        if (c == 'c' || c == 'g')
+        {
+            gccontent = gccontent + 1;
+        }
+    }
+    return (gccontent * 100 / _data.length());
 }
 
 void Fasta::setName(const std::string& name)

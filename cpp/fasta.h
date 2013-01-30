@@ -14,6 +14,9 @@ public:
     // Length of the sequence
     int length();
 
+    // GC content of the sequence
+    int gccontent();
+
     void setName(const std::string& name);
 
     void setSequence(const std::string& data);
